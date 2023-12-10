@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitch Chat Poll</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Libraries -->
+    <script src="libs/chart.js"></script>
+    <script src="libs/tmi.min.js"></script>
+  </head>
+  <body>
+    <!-- User menu -->
+    <div class="floating-up">
+      <div class="floating-content content-small">
+        <div>Logged as <span class="highlight" id="username">Username</span></div>
+        <button class="btn btn-critical btn-small" id="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Floating menu -->
+    <div class="floating">
+      <div class="floating-content">
+        <button class="btn btn-primary" id="start-btn">Start</button>
+        <button class="btn btn-secondary" id="stop-btn">Stop</button>
+        <button class="btn btn-options" id="options-btn">Settings</button>
+      </div>
+    </div>
+
+    <!-- Loading page -->
+    <div class="page loading" id="loading">
+      <div class="vstack">
+        <h1 class="text-center no-select">Loading</h1>
+        <pre class="no-select">
+  
+  ／l、
+（ﾟ､ ｡ ７
+  |  ~ヽ
+  じしf_,)ノ
+            </pre
+        >
+      </div>
+    </div>
+
+    <!-- Login page -->
+    <div class="page login" id="login">
+      <form class="vstack" id="login-form">
+        <h1 class="text-center no-select">Connect to Twitch</h1>
+
+        <p class="critical" id="login-error"></p>
+
+        <input class="input" placeholder="username" />
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Results -->
+    <div class="page results">
+      <div class="results-module">
+        <canvas id="chart" height="100%"></canvas>
+      </div>
+
+      <div class="results-module">
+        <div class="activity invisible-scroll" id="activity"></div>
+      </div>
+    </div>
+
+    <!-- Options -->
+    <div class="page options" id="settings">
+      <div class="page" id="settings-wrapper">
+        <form id="settings-form" class="options-panel" action="/" method="post">
+          <h1>Settings</h1>
+          <p class="critical">
+            <span class="critical-tag">Warning:</span> Saving the options will reset the votes to 0
+          </p>
+
+          <div class="options-form">
+            <input name="value_1" class="input" placeholder="Opcion A" />
+            <input name="value_2" class="input" placeholder="Opcion B" />
+            <input name="value_3" class="input" placeholder="Opcion C" />
+            <input name="value_4" class="input" placeholder="Opcion D" />
+            <input name="value_5" class="input" placeholder="Opcion E" />
+            <input name="value_6" class="input" placeholder="Opcion F" />
+          </div>
+
+          <div class="options-btns">
+            <button
+              class="btn btn-options"
+              onclick="hideSettings()"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Import main script using require.js -->
+    <script src="libs/require.min.js" data-main="index.js"></script>
+  </body>
+</html>

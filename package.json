@@ -1,0 +1,17 @@
+{
+  "name": "twitch-poll",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sammwyy/twitch-poll",
+  "author": "Sammwy <sammwy.dev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/tmi.js": "^1.8.6"
+  }
+}
